@@ -24,6 +24,9 @@ namespace learning_csharp
             
             dm.Location = "Kitchen"; //references the property not the private variable _location
             Console.WriteLine(dm.Location);
+
+            //using a static class
+            Console.WriteLine(Math.Pow(2, 8)); //don't instantiate, just call the method
         }
 
         public class DrinksMachine
