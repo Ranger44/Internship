@@ -10,39 +10,47 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
+            #region inheritance demo
+            //see Employee & Manager classes below
+            Manager leadManager = new Manager();
+            leadManager.Department = "Warehouse";
+            #endregion
+
+            #region Anon class
+            //var anon = new { Name = "Gerry", Age = 29 };
+            //Console.WriteLine(anon.Name + anon.Age);
+            #endregion
+
             #region oop_mod1_assess
-            var program1 = new UProgram("Information Technology");
-            var student1 = new Student();
-            var student2 = new Student();
-            var student3 = new Student();
-            var course1 = new Course("Programming with C#");
-            course1.AddStudent(student1);
-            course1.AddStudent(student2);
-            course1.AddStudent(student3);
+            //var program1 = new UProgram("Information Technology");
+            //var student1 = new Student();
+            //var student2 = new Student();
+            //var student3 = new Student();
+            //var course1 = new Course("Programming with C#");
+            //course1.AddStudent(student1);
+            //course1.AddStudent(student2);
+            //course1.AddStudent(student3);
 
-            var teacher1 = new Teacher();
-            course1.AddTeacher(teacher1);
-            var degree1 = new Degree("Bachelors");
-            degree1.AddCourse(course1);
-            program1.AddDegree(degree1);
+            //var teacher1 = new Teacher();
+            //course1.AddTeacher(teacher1);
+            //var degree1 = new Degree("Bachelors");
+            //degree1.AddCourse(course1);
+            //program1.AddDegree(degree1);
 
-            Console.WriteLine("Program: {0}", program1.UProgramName);
-            Console.Write("Degree: ");
-            var deg_list = program1.GetDegreeList();
-            foreach(Degree deg in deg_list)
-            {
-                Console.WriteLine(deg.DegreeName);
-            }
-            Console.Write("Course: ");
-            var courses_list = degree1.GetCoursesList();
-            foreach(Course course in courses_list)
-            {
-                Console.WriteLine(course.CourseName);
-            }
-            Console.WriteLine("Student Count: {0}", Course.CountStudents());
-            
-
-
+            //Console.WriteLine("Program: {0}", program1.UProgramName);
+            //Console.Write("Degree: ");
+            //var deg_list = program1.GetDegreeList();
+            //foreach(Degree deg in deg_list)
+            //{
+            //    Console.WriteLine(deg.DegreeName);
+            //}
+            //Console.Write("Course: ");
+            //var courses_list = degree1.GetCoursesList();
+            //foreach(Course course in courses_list)
+            //{
+            //    Console.WriteLine(course.CourseName);
+            //}
+            //Console.WriteLine("Student Count: {0}", Course.CountStudents());
             #endregion
 
             #region OOP_mod1_labs 
@@ -151,6 +159,78 @@ namespace learning_csharp
                 this.Age = age;
                 this.Make = make;
                 this.Model = model;
+            }
+        }
+
+        abstract class Employee  //employee is abstract so cannot be instantiated
+        {
+            private string empNumber;
+            private string firstName;
+            private string lastName;
+            private string address;
+
+            public string EmpNumber
+            {
+                get
+                {
+                    return empNumber;
+                }
+
+                set
+                {
+                    empNumber = value;
+                }
+            }
+
+            public string FirstName
+            {
+                get
+                {
+                    return firstName;
+                }
+
+                set
+                {
+                    firstName = value;
+                }
+            }
+
+            public string LastName
+            {
+                get
+                {
+                    return lastName;
+                }
+
+                set
+                {
+                    lastName = value;
+                }
+            }
+
+            public string Address
+            {
+                get
+                {
+                    return address;
+                }
+
+                set
+                {
+                    address = value;
+                }
+            }
+        }
+        class Manager : Employee
+        {
+            private char payRateIndicator;
+            private Employee[] emps;
+            private string department;
+
+            public string Department
+            {
+                get { return department; }
+                set { department = value; }
             }
         }
     }
