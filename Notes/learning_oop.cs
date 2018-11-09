@@ -214,3 +214,93 @@ class Manager : Employee  //Manager = derived, Employee = base
             - An abstract method is not permitted to have any implementation, including curly braces
             - An abstract method signature must end in a semi-colon
             - An abstract method MUST be implemented in any sub class. 
+            
+            
+//Sealed Classes
+- keyword that prevents a class from being inherited
+    - compiler error if inheritance is attempted
+- STRUCTS are sealed - can't derived a class from a struct
+
+
+//Interfaces
+- Like a class without an implementation
+- Specifies a set of characteristics and behaviors without specifying how they are implemented
+- When a class implements an interface, the class rpovides an miplementation for each member of the interface
+// Defining an Interface
+public interface ILoyaltyCardHolder
+{
+   int TotalPoints { get; }
+   int AddPoints(decimal transactionValue); //Methods do not include bodies
+   void ResetPoints();
+}
+// Implementing an Interface Implicitly
+public class Customer : ILoyaltyCardHolder
+{
+   private int totalPoints;
+   public int TotalPoints
+   {
+      get { return totalPoints; }
+   }
+   public int AddPoints(decimal transactionValue)
+   {
+      int points = Decimal.ToInt32(transactionValue);
+      totalPoints += points;
+      return totalPoints;
+   }
+   public void ResetPoints()
+   {
+      totalPoints = 0;
+   }
+   // Other members of the Customer class.   
+}
+// Implementing an Interface Explicitly
+public class Coffee : IBeverage
+{
+   private int servingTempWithoutMilk { get; set; }
+   private int servingTempWithMilk { get; set; }
+   public int IBeverage.GetServingTemperature(bool includesMilk)  //member belongs to a particular interface
+   {
+      if(includesMilk)
+      {
+          return servingTempWithMilk;
+      }
+      else
+      {
+         return servingTempWithoutMilk;
+      }
+   }
+   public bool IBeverage.IsFairTrade { get; set; }
+   // Other non-interface members.
+}
+// Representing an Object as an Interface Type
+Coffee coffee1 = new Coffee();
+IBeverage coffee2 = new Coffee();
+// Casting to an Interface Type
+IBeverage beverage = coffee1;
+// Casting an Interface Type to a Derived Class Type
+Coffee coffee3 = beverage as Coffee;
+// OR
+Coffee coffee4 = (Coffee)beverage;
+Implementing Multiple Interfaces
+
+//Implementing more than one interface
+- add a comma-separated list of the interface
+// Declaring a Class that Implements Multiple Interfaces
+public class Coffee: IBeverage, IInventoryItem
+{
+}
+
+
+//Object Lifecycle
+- Common language runtime (CLR) executes code to create new oject
+    - allocates a block of memory large enough to hold the object
+    - initializes the block of memory to the new onject
+- Garbage Collector (GC) runs automatically and periodically in a separate thread
+        - releases resources
+        - memory that is allocated to the object is reclaimed
+        - Enables you to develop your application without having to worry about freeing memory.
+        - Allocates objects on the managed heap efficiently.
+        - Reclaims objects that are no longer being used, clears their memory, and keeps the memory available for future allocations. Managed objects automatically get clean content to start with, so their constructors do not have to initialize every data field.
+        - Provides memory safety by making sure that an object cannot use the content of another object.
+        - cannot handle unmanaged resources
+

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +12,66 @@ namespace learning_csharp
     {
         static void Main(string[] args)
         {
+            #region mod3_labs
+            // Creates StreamReader object called "streamReaderObject" 
+            // Assigns its value to null
+            StreamReader streamReaderObject = null;
+
+            try
+            {
+                // Assigns "streamReaderObject" to read from a text file named "file1"
+                streamReaderObject = new StreamReader("file1.txt");
+
+                // Reads all characters from the current position to the end of the stream
+                // Stores in String variable "contents"
+                String contents = streamReaderObject.ReadToEnd();
+
+                // Closes StreamReader
+                streamReaderObject.Close();
+
+                // Writes the amount of text elements in the text file to the Console
+                Console.WriteLine("The file has {0} text elements.", new StringInfo(contents).LengthInTextElements);
+            }
+
+            // Code to handle any errors
+            catch (FileNotFoundException)
+            {
+                // Informs user there is no file created
+                Console.WriteLine("The file cannot be found.");
+            }
+            // Invoking the Dispose method in a finally block
+            // Note that code in finally block will always execute
+            finally
+            {
+                // Checks if object is not null
+                if (streamReaderObject != null)
+                    // Calls upon the Dispose method
+                    // Releases all resources used by the TextReader object
+                    streamReaderObject.Dispose();
+            }
+            #endregion
+
+            #region mod2_self_assess
+            //see oop_mod1_assess
+            #endregion
+
+            #region mod2_labs
+            //// Instantiates Employee Object with name Libby and salary 2000 called employee1
+            ////var employee1 = new Employee("Libby", 2000);
+            //var employee1 = new TechnicalEmployee("Libby");
+            //// Instantiates TechnicalEmployee Object with name Zaynah called employee2
+            //var employee2 = new TechnicalEmployee("Zaynah");
+            //// Instantiates BusinessEmployee Object with name Winter called employee3
+            //var employee3 = new BusinessEmployee("Winter");
+
+            //// Output to the console window
+            //Console.WriteLine(employee1.employeeStatus() + "..." + employee2.employeeStatus() + "..." + employee3.employeeStatus());
+            #endregion
+
             #region inheritance demo
-            //see Employee & Manager classes below
-            Manager leadManager = new Manager();
-            leadManager.Department = "Warehouse";
+            ////see Employee & Manager classes below
+            //Manager leadManager = new Manager();
+            //leadManager.Department = "Warehouse";
             #endregion
 
             #region Anon class
@@ -40,17 +98,20 @@ namespace learning_csharp
             //Console.WriteLine("Program: {0}", program1.UProgramName);
             //Console.Write("Degree: ");
             //var deg_list = program1.GetDegreeList();
-            //foreach(Degree deg in deg_list)
+            //foreach (Degree deg in deg_list)
             //{
             //    Console.WriteLine(deg.DegreeName);
             //}
             //Console.Write("Course: ");
             //var courses_list = degree1.GetCoursesList();
-            //foreach(Course course in courses_list)
+            //foreach (Course course in courses_list)
             //{
             //    Console.WriteLine(course.CourseName);
             //}
             //Console.WriteLine("Student Count: {0}", Course.CountStudents());
+
+            //Student myStudent = new Student();
+            //Person myPerson = myStudent;
             #endregion
 
             #region OOP_mod1_labs 
@@ -162,76 +223,76 @@ namespace learning_csharp
             }
         }
 
-        abstract class Employee  //employee is abstract so cannot be instantiated
-        {
-            private string empNumber;
-            private string firstName;
-            private string lastName;
-            private string address;
+        //abstract class Employee  //employee is abstract so cannot be instantiated
+        //{
+        //    private string empNumber;
+        //    private string firstName;
+        //    private string lastName;
+        //    private string address;
 
-            public string EmpNumber
-            {
-                get
-                {
-                    return empNumber;
-                }
+        //    public string EmpNumber
+        //    {
+        //        get
+        //        {
+        //            return empNumber;
+        //        }
 
-                set
-                {
-                    empNumber = value;
-                }
-            }
+        //        set
+        //        {
+        //            empNumber = value;
+        //        }
+        //    }
 
-            public string FirstName
-            {
-                get
-                {
-                    return firstName;
-                }
+        //    public string FirstName
+        //    {
+        //        get
+        //        {
+        //            return firstName;
+        //        }
 
-                set
-                {
-                    firstName = value;
-                }
-            }
+        //        set
+        //        {
+        //            firstName = value;
+        //        }
+        //    }
 
-            public string LastName
-            {
-                get
-                {
-                    return lastName;
-                }
+        //    public string LastName
+        //    {
+        //        get
+        //        {
+        //            return lastName;
+        //        }
 
-                set
-                {
-                    lastName = value;
-                }
-            }
+        //        set
+        //        {
+        //            lastName = value;
+        //        }
+        //    }
 
-            public string Address
-            {
-                get
-                {
-                    return address;
-                }
+        //    public string Address
+        //    {
+        //        get
+        //        {
+        //            return address;
+        //        }
 
-                set
-                {
-                    address = value;
-                }
-            }
-        }
-        class Manager : Employee
-        {
-            private char payRateIndicator;
-            private Employee[] emps;
-            private string department;
+        //        set
+        //        {
+        //            address = value;
+        //        }
+        //    }
+        //}
+        //class Manager : Employee
+        //{
+        //    private char payRateIndicator;
+        //    private Employee[] emps;
+        //    private string department;
 
-            public string Department
-            {
-                get { return department; }
-                set { department = value; }
-            }
-        }
+        //    public string Department
+        //    {
+        //        get { return department; }
+        //        set { department = value; }
+        //    }
+        //}
     }
 }
