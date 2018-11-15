@@ -48,3 +48,123 @@ Fluent API
         }
     }
     new Student().Greet("Timothy").Greet("Tom").Greet("Roman");
+    
+Extension Methods
+- attach methods to existing types
+    ex: putting quotes around string even though .Quote is not a string method
+    public static class StringExtension {
+        public static string Quote(this string str) {
+            return $"\"{str}\"";
+        }
+    }
+    var original = "ABCDE";
+    var quoted = original.Quote();
+    Console.WriteLine(original);  //ABCDE
+    Console.WriteLine(quoted);    //"ABCDE"
+    - both the extension method and the host class must be static
+- the first parameter of the extension method must be modified by this
+    ex: rounding doubles even though .Double() is not a method of double
+    using System;
+    namespace Trimming {
+        static class DoubleExtension {
+            public static double Round(this double value, int digits) {
+                return Math.Round(value, digits);
+            }
+        }
+
+        class Program {
+            static void Main(string[] args) {
+                var d = 12.3456789;
+                var r1 = d.Round(2);
+                var r2 = d.Round(4);
+                Console.WriteLine(d);
+                Console.WriteLine(r1);
+                Console.WriteLine(r2);
+            }
+        }
+    }
+    static class DoubleExtension {
+        public static double Round(this double value, int digits) {
+            return Math.Round(value, digits);
+        }
+    }
+    var r1 = d.Round(2);  //2 parameters in declaration but only one argument used when calling
+    var r2 = d.Round(4);
+    
+Extension Methods with Interfaces
+- in order to attach Extension methods to multiple types
+    ex:
+       public interface IWorker {
+            string Name { get; set; }
+            int YearsOfExperience { get; set; }
+            string Scope { get; set; }
+        }
+
+        public class Writer : IWorker {
+            public string Name { get; set; }
+            public int YearsOfExperience { get; set; }
+            public string Scope { get; set; }
+            public void Write() { /*...*/ }
+        }
+
+        public class Teacher : IWorker {
+            public string Name { get; set; }
+            public int YearsOfExperience { get; set; }
+            public string Scope { get; set; }
+            public void Teach() { /*...*/ }
+        }
+        //to attach a group of extension methods to the IWorker interface, create a static class to extend the IWorker interface
+        public static class IWorkerExtension {
+            public static void Introduce1(this IWorker worker) {
+                Console.WriteLine($"Hi, my name is {worker.Name}.");
+            }
+
+            public static void Introduce2(this IWorker worker) {
+                Console.WriteLine($"My major scope is {worker.Scope}.");
+            }
+
+            public static void Introduce3(this IWorker worker) {
+                Console.WriteLine($"I have {worker.YearsOfExperience} years experience.");
+            }
+        }
+        //after declaring the extension methods for IWorker
+        static void Main(string[] args) {
+            var writer = new Writer {
+                Name = "Timothy",
+                Scope = ".NET Core",
+                YearsOfExperience = 15
+            };
+
+            writer.Introduce1();  //Hi, my name is Timothy.
+            writer.Introduce2();  //My major scope is .NET Core.
+            writer.Introduce3();  //I have 15 years experience.
+        }
+        
+//Built in LINQ Extension Methods
+using System;
+using System.Linq;
+
+namespace HelloLINQ {
+    class Program {
+        static void Main(string[] args) {
+            int[] values = {100, 200, 300};
+            var max  = values.Max();  //use LINQ method instead of for or foreach
+            System.Console.WriteLine(max);
+        }
+    }
+}
+
+//Lambda Experessions
+- anonymous functions are not intended to be reused so instead of polluting the namespace with:
+    static void Main(string[] args) {
+        Action action = SayHello;
+        action();
+    }
+    static void SayHello() {
+        Console.WriteLine("Hello, World!");
+    }
+    //you can write:
+    static void Main(string[] args) {
+        Action action = () => { Console.WriteLine("Hello, World"); };
+        action();
+    }
