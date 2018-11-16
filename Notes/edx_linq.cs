@@ -168,3 +168,14 @@ namespace HelloLINQ {
         Action action = () => { Console.WriteLine("Hello, World"); };
         action();
     }
+    
+//FUNC delegates
+Func<in T, out TResult> is one of the most commonly used delegate types with LINQ
+    - declaration: public delegate TResult Func<in T, out TResult>(T arg);
+    class Program {
+        static void Main(string[] args) {
+            Func<string, int> func = (s) => { return s.Length; };
+            int x = func("Hello");
+            Console.WriteLine(x);  //output = 5
+        }
+    }
