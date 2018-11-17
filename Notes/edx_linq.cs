@@ -179,3 +179,26 @@ Func<in T, out TResult> is one of the most commonly used delegate types with LIN
             Console.WriteLine(x);  //output = 5
         }
     }
+    
+//Creating .NET Core App
+1. Create Project
+    Option 1: Create Project Directly
+        - Execute the following command from the cmd or PowerShell:
+            cd C:\Projects
+            dotnet new console --name LinqApp
+        - then:
+            cd LinqApp
+            code .
+            (or right click the project folder and Open with Code
+            
+    Option 2: Create Project Folder First
+        - create LinqApp folder first.
+        - right click then Open with Code
+        - then click View -> Integrated Terminal
+        - in the terminal panel, execute:
+            dotnet new console
+2. Run/Debug the App
+    - once you open the LinqApp project, wait about 5 seconds for popup message "Required assets to build and debug are missing from 'LinqApp'...
+        - click yes
+    - click Debug -> Start Debugging or press F5
+        - You should see the output: Hello World!
