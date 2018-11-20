@@ -202,3 +202,8 @@ Func<in T, out TResult> is one of the most commonly used delegate types with LIN
         - click yes
     - click Debug -> Start Debugging or press F5
         - You should see the output: Hello World!
+        
+        
+//ASP.NET
+https://msdn.microsoft.com/en-us/magazine/mt767698.aspx
+https://www.tutorialspoint.com/linq/linq_asp.net.htm
