@@ -206,4 +206,14 @@ Func<in T, out TResult> is one of the most commonly used delegate types with LIN
         
 //ASP.NET
 https://msdn.microsoft.com/en-us/magazine/mt767698.aspx
+
+
+
+
 https://www.tutorialspoint.com/linq/linq_asp.net.htm
+
+
+https://weblogs.asp.net/scottgu/using-linq-to-sql-part-1
+
+
+https://www.c-sharpcorner.com/UploadFile/de41d6/learning-linq-made-easy-linq-to-sql-tutorial-2/
