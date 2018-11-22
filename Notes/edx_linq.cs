@@ -204,7 +204,7 @@ Func<in T, out TResult> is one of the most commonly used delegate types with LIN
         - You should see the output: Hello World!
         
         
-//ASP.NET
+//Outside resources
 https://msdn.microsoft.com/en-us/magazine/mt767698.aspx
 
 
@@ -217,3 +217,5 @@ https://weblogs.asp.net/scottgu/using-linq-to-sql-part-1
 
 
 https://www.c-sharpcorner.com/UploadFile/de41d6/learning-linq-made-easy-linq-to-sql-tutorial-2/
+
+https://medium.com/edgefund/c-development-with-visual-studio-code-b860cc71a5ec
