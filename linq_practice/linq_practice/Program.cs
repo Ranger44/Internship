@@ -31,16 +31,35 @@ namespace LinqApp
             // writer.Introduce3();
             //writer.Introduce1().Introduce2().Introduce3();
 
-            double CylinderVolume(double h, double r) { return Math.PI * r * r * h; }
-            Console.WriteLine(CylinderVolume(2.2, 1.1));
+            //double CylinderVolume(double h, double r) { return Math.PI * r * r * h; }
+            //Console.WriteLine(CylinderVolume(2.2, 1.1));
 
-            Func<double, double, double> func1 = (double h, double r) => { return Math.PI * r * r * h; };
-            Console.WriteLine(func1(2.2, 1.1));
+            //Func<double, double, double> func1 = (double h, double r) => { return Math.PI * r * r * h; };
+            //Console.WriteLine(func1(2.2, 1.1));
 
-            Func<double, double, double> func2 = (h, r) => { return Math.PI * r * r * h; };
-            Console.WriteLine(func2(2.2, 1.1));
+            //Func<double, double, double> func2 = (h, r) => { return Math.PI * r * r * h; };
+            //Console.WriteLine(func2(2.2, 1.1));
 
             //Func<double, double, double> func3 = (h, r) => { Math.PI* r *r * h };
+
+            //var nums = Enumerable.Range(0, 100).Reverse();
+            //var nums2 = Enumerable.Range(0, 100).OrderByDescending(n => n);
+            //Console.WriteLine(String.Join(",",nums));
+            //Console.WriteLine(String.Join(",", nums2));
+            //var nums3 = Enumerable.Range(0, 99).Reverse();
+            //var nums4 = Enumerable.Range(0, 99).OrderByDescending(n => n);
+            //Console.WriteLine(String.Join(",", nums3));
+            //Console.WriteLine(String.Join(",", nums4));
+
+            int[] source = { 1, 2, 3, 4, 5 };
+            var a = source.Average();
+            var b = source.Sum() / source.Count();
+            var c = source.Sum() / source.LongCount();
+            var d = source.Sum() / source.Length;
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+            Console.WriteLine(d);
         }
     }
 
