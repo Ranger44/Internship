@@ -1,0 +1,14 @@
+The Complete ASP.NET MVC 5
+
+MVC Architectural Pattern
+    - MVC = Model, View, Controller
+    - architectural pattern for implementing user interfaces
+    - similar frameworks include Ruby on Rails or Express for Node
+    - MODEL
+        - application data and behavior in terms of its problem domain, and independent of the UI
+    - VIEW
+        - the HTML markup that we display to the user
+    - CONTROLLER
+        - responsible for handling HTTP requests
+    - ROUTER
+        - selects the correct controller

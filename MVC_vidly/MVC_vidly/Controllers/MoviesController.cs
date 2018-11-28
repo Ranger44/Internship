@@ -10,10 +10,11 @@ namespace MVC_vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies/Random
-        public ActionResult Random()
+        public ActionResult Random()  //or public ViewResult Random()
         {
             var movie = new Movie(){Name = "Shrek!"};
-            return View(movie);
+            //return View(movie);
+            return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
         }
     }
 }
