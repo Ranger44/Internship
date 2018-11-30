@@ -50,3 +50,9 @@ Routing
             {
                 return Content(year + "/" + month);
             }
+            
+Pass Data to a View
+    - In MovieController.cs:
+        return View(movie);
+    - In Random.cshtml:
+        <h2>@Model.Name</h2>

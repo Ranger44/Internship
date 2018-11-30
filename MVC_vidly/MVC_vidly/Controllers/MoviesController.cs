@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC_vidly.Models;
+using MVC_vidly.ViewModels;
 
 namespace MVC_vidly.Controllers
 {
@@ -13,7 +14,20 @@ namespace MVC_vidly.Controllers
         public ActionResult Random()  //or public ViewResult Random()
         {
             var movie = new Movie(){Name = "Shrek!"};
-            return View(movie);
+            var customers = new List<Customer>
+            {
+                new Customer() {Name = "Customer 1"},
+                new Customer() {Name = "Customer 2"}
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
+            //return View(movie);
             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
         }   
         // GET: movies/edit/1 or movies/edit?id=1
