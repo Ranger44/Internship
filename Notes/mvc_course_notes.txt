@@ -56,3 +56,12 @@ Pass Data to a View
         return View(movie);
     - In Random.cshtml:
         <h2>@Model.Name</h2>
+        
+Model - (Data) Carries the info shown to or collected from users
+View (User Interface) - Show data, collect data, pass operations to the logic
+    - passes user's commands/operations to the controller
+    - 
+Controller (Logic) - Process data, respond to user operations, choose proper user interface to show data.
+    - repsonds to the commands from user
+    - manipulates models
+    - picks proper views for models or picks proper models for views
