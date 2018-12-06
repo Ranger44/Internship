@@ -10,6 +10,15 @@ namespace MVC_vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        public ViewResult Index()
+        {
+            var movies = new List<Movie>
+            {
+                new Movie {Name = "Home Alone"},
+                new Movie {Name = "Christmas Vacation"}
+            };
+            return View(movies);
+        }
         // GET: Movies/Random
         public ActionResult Random()  //or public ViewResult Random()
         {
