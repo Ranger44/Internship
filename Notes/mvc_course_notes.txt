@@ -58,10 +58,27 @@ Pass Data to a View
         <h2>@Model.Name</h2>
         
 Model - (Data) Carries the info shown to or collected from users
+    - abstract data structure (usually a class)
+    - reflects thte status and behaviors of real-world objects with its properties and methods
+    - translate a table schema to a model class
+    - 
 View (User Interface) - Show data, collect data, pass operations to the logic
     - passes user's commands/operations to the controller
-    - 
+    - view model is the data rendered by a view
 Controller (Logic) - Process data, respond to user operations, choose proper user interface to show data.
     - repsonds to the commands from user
     - manipulates models
     - picks proper views for models or picks proper models for views
+    
+SOLID Principle
+    S - Single Responsibility Principle
+        - a class should only have one responsibility
+    O - Open/closed principle
+        - "software entities should be open for extension byut closed for modification"
+    L - Liskoov substitution principle
+        - objects in a program should be replaceable with instances of their subtypes without altering the correctness of the program
+        - AKA design by contract
+    I - Interface Segregation Principle
+        - many client-specific interfaces are better than one general-purpose interface
+    D - Dependency Inversion principle
+        - one should "depend upon abstractions, NOT concretions"

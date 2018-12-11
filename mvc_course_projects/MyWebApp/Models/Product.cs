@@ -1,4 +1,4 @@
-namespace HelloMVC2.Models {
+namespace MyWebApp.Models {
     public class Product {
         public int ID { get; set; }
         public string Name { get; set; }

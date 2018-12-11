@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using HelloMVC2.Models;
+using MyWebApp.Models;
 
-namespace HelloMVC2.Controllers {
+namespace MyWebApp.Controllers {
     public class ProductController : Controller {
         public IActionResult ShowAll() {
             ViewData["Heading"] = "All Products";
