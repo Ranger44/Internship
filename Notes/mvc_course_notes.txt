@@ -82,3 +82,8 @@ SOLID Principle
         - many client-specific interfaces are better than one general-purpose interface
     D - Dependency Inversion principle
         - one should "depend upon abstractions, NOT concretions"
+        
+CONTROLLERS AND ACTIONS
+    - A controller is a .NET class that used to define and group a set of actions. An action (or action method) is a method on a controller which handles HTTP requests.
+    - A controller logically groups actions together. 
+    
