@@ -86,4 +86,14 @@ SOLID Principle
 CONTROLLERS AND ACTIONS
     - A controller is a .NET class that used to define and group a set of actions. An action (or action method) is a method on a controller which handles HTTP requests.
     - A controller logically groups actions together. 
+    - Action = controller that handles HTTP requests
     
+URL Routing
+    Conventional routing - {controller=Home}/{action=Index}/{id?}
+    Attribute routing - if a controller class is modified by [Route("Product")], all URLs start with Product will be navigated to this controller. 
+        If an action in this controller is modified by [Route("Create")], the URL product/create will be handled just by this action
+    
+VIEWS
+    - Razor view    
+        - HTML elements
+        - executable code has a leading @ and should be a block of C#
