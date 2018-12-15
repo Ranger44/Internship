@@ -97,3 +97,7 @@ VIEWS
     - Razor view    
         - HTML elements
         - executable code has a leading @ and should be a block of C#
+        
+WORKING WITH DATA
+    Entity framework
+    Code-first vs database-first
